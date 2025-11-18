@@ -28,7 +28,7 @@ class Pagamento(BaseModel):
   valor_desconto: Optional[Decimal] = Field(default=None, description="Valor do desconto (opcional)")
 
   codigo_multa: Optional[str] = Field(default='2', description="Código da multa (opcional)")
-  percentual_multa: Optional[Decimal] = Field(default=0, description="Percentual da multa (opcional)")
+  percentual_multa: Optional[Decimal] = Field(default=0.0, description="Percentual da multa (opcional)")
   data_multa: Optional[date] = Field(default=None, description="Data da multa (opcional)")
 
   @field_validator('uf_sacado')
