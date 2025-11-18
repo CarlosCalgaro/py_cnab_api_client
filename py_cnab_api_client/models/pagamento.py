@@ -22,7 +22,10 @@ class Pagamento(BaseModel):
   cidade_sacado: str = Field(..., min_length=1, description="Cidade do sacado (obrigatório)")
   uf_sacado: str = Field(..., min_length=2, max_length=2, description="UF do sacado, 2 dígitos (obrigatório)")
   identificacao_ocorrencia: str = Field(..., min_length=2, max_length=2, description="Código da ocorrência (obrigatório)")
-
+  cod_desconto: Optional[str] = Field(default='0', min_length=1, max_length=1, description="Código do desconto (opcional)")
+  data_desconto: Optional[date] = Field(default=None, description="Data do desconto (opcional)")
+  valor_desconto: Optional[Decimal] = Field(default=None, description="Valor do desconto (opcional)")
+  
   @field_validator('uf_sacado')
   @classmethod
   def uf_must_have_two_chars(cls, v):
