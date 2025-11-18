@@ -22,12 +22,13 @@ class Pagamento(BaseModel):
   cidade_sacado: str = Field(..., min_length=1, description="Cidade do sacado (obrigatório)")
   uf_sacado: str = Field(..., min_length=2, max_length=2, description="UF do sacado, 2 dígitos (obrigatório)")
   identificacao_ocorrencia: str = Field(..., min_length=2, max_length=2, description="Código da ocorrência (obrigatório)")
+  
   cod_desconto: Optional[str] = Field(default='0', min_length=1, max_length=1, description="Código do desconto (opcional)")
   data_desconto: Optional[date] = Field(default=None, description="Data do desconto (opcional)")
   valor_desconto: Optional[Decimal] = Field(default=None, description="Valor do desconto (opcional)")
 
   codigo_multa: Optional[str] = Field(default='2', description="Código da multa (opcional)")
-  percentual_multa: Optional[Decimal] = Field(default=None, description="Percentual da multa (opcional)")
+  percentual_multa: Optional[Decimal] = Field(default=0, description="Percentual da multa (opcional)")
   data_multa: Optional[date] = Field(default=None, description="Data da multa (opcional)")
 
   @field_validator('uf_sacado')
