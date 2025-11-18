@@ -15,7 +15,7 @@ class Boleto(BaseModel):
   sacado: str = Field(..., min_length=1, description="Nome do sacado (obrigatório)")
   sacado_documento: str = Field(..., min_length=1, description="Documento do sacado (obrigatório)")
   agencia: str = Field(..., min_length=1, description="Agência bancária (obrigatório)")
-  carteira: str = Field(default='2', min_length=1, description="Carteira do cedente (obrigatório)")
+  carteira: str = Field(default='1', min_length=1, description="Carteira do cedente (obrigatório)")
   conta_corrente: str = Field(..., min_length=1, description="Número da conta corrente (obrigatório)")
   convenio: str = Field(..., min_length=1, description="Convênio do cedente (obrigatório)")
   data_vencimento: date = Field(..., description="Data de vencimento do boleto (obrigatório)")
